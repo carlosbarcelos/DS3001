@@ -10,9 +10,7 @@ df = csv.drop(columns=['Department Name', 'Property Id', 'Property Name', 'Addre
                        'LEED Certified', 'Location'])
 
 # Remove missing values
-for index, row in df.iterrows():
-    if pd.isna(row['Water Use (All Water Sources) (kgal)']) or pd.isna(row['Electricity Use (kWh)']):
-        df.drop(index, inplace=True)
+df.dropna(inplace=True)
 
 # Create scatterplot for all correlation
 plt.figure()
@@ -48,7 +46,7 @@ for dep in top5_byName:
     temp = top5[top5['Department'] == dep]
     # Calculate Person's correlation coefficient
     pCorr = temp.corr(method='pearson')
-    print('Person Correlation Coefficient '+dep+': ', pCorr, '\n')
+    print('Person Correlation Coefficient'+dep+': ', pCorr, '\n')
     # Create scatterplot for all correlation
     plt.figure()
     temp.plot.scatter('Water Use (All Water Sources) (kgal)', 'Electricity Use (kWh)', title=dep)

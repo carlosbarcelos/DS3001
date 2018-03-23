@@ -10,9 +10,7 @@ df = csv.drop(columns=['Department Name', 'Property Id', 'Property Name', 'Addre
                    'LEED Certified', 'Location'])
 
 # Remove missing values
-for index, row in df.iterrows():
-    if pd.isna(row['Water Use (All Water Sources) (kgal)']):
-        df.drop(index, inplace=True)
+df.dropna(inplace=True)
 
 # All buildings
 # Calculate central tendency for all departments
