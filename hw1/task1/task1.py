@@ -1,10 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import scipy
-import numpy as np
 
 # Read in dataset and create appropriate dataframe
-csv = pd.read_csv('CAStateBuildingMetrics.csv')
+csv = pd.read_csv('../CAStateBuildingMetrics.csv')
 df = csv.drop(columns=['Department Name', 'Property Id', 'Property Name', 'Address 1', 'City', 'State/Province',
                    'Postal Code', 'Property Area', 'Primary Property Type', 'Year Built', 'Electricity Use (kWh)',
                    'Natural Gas Use (therms)', 'Propane Use (kBtu)', 'Percent of Electricity that is Green Power',
