@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from datetime import date
 
 # Converts a given string into its seconds form
 def convertToSeconds(i, str):
@@ -33,6 +34,10 @@ temp = pd.DatetimeIndex(csv['Date / Time'])
 csv['Date'] = temp.date
 csv['Time'] = temp.time
 csv.drop(columns=['Date / Time'], inplace=True)
+# Ignore sightings outside of range [January 1, 2005 AND September 22, 2016]
+minDate = date(2005, 1, 1)
+maxDate = date(2016, 9, 22)
+csv = csv[(csv['Date'] >= minDate) & (csv['Date'] <= maxDate)]
 
 # # Clean 'Duration' column
 for index, row in csv.iterrows():
@@ -56,4 +61,5 @@ for index, row in csv.iterrows():
     csv['Duration'][index] = str(intMax)
 
 # Write the cleaned result to CSV
+print(list(csv))
 csv.to_csv("../UFOSightings_CLEAN.csv")
