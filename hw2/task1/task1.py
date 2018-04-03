@@ -21,11 +21,22 @@ df_noOutlier.boxplot(by='Shape')
 plt.savefig('Duration_Per_Shape.png')
 
 # Time series figure with the number of sightings per year (one line per shape)
+sightingsDF = df[['Date', 'Shape']].copy()
+sightingsDF['Year'] = sightingsDF['Date'].map(lambda x: pd.datetime.strptime(x, '%m/%d/%Y').year)
+sightingsDF.drop(columns=['Date'], inplace=True)
 plt.figure()
-# TODO
+yearPV = sightingsDF.pivot_table(index='Year', columns='Shape', aggfunc=len)
+yearPV.plot()
 plt.savefig('Sightings_Per_Year.png')
 
 # Bar chart for sightings by state
-plt.figure()
-df['State'].value_counts().plot(kind='bar', figsize=(15,10), title='Sightings Per State')
+plt.figure(figsize=(15, 10))
+df['State'].value_counts().plot(kind='bar', title='Sightings Per State')
 plt.savefig('Sighting_Per_State.png')
+
+# Normalize sightings by population
+normDF = pd.read_csv("normalizeUFOSightings.csv")
+normDF.drop(columns=['count', 'Population'], inplace=True)
+plt.figure()
+normDF.sort_values(by=['norm_count'], ascending=False).plot(x='State', y='norm_count', kind='bar', figsize=(15, 10), title='Sightings Per State (Normalized)')
+plt.savefig('Sighting_Per_State(Normalized).png')
