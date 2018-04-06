@@ -1,38 +1,32 @@
 import pandas as pd
-import pydotplus
 from sklearn import tree
-import pydot
-from sklearn.externals.six import StringIO
-from IPython.display import Image
-from sklearn.tree import export_graphviz
-import graphviz
-from sklearn import preprocessing
-from sklearn.feature_extraction import DictVectorizer
-import collections
-import networkx as nx
-import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report
 
 # Read in dataset and create appropriate dataframe
 csv_train = pd.read_csv("UFOSightings_TRAIN.csv")
 csv_test = pd.read_csv("UFOSightings_TEST.csv")
 
 # # Create decision tree using GINI impurity
-cat = ['Shape', 'region_cat', 'time_cat']
-df_train = csv_train[cat]
+# Convert to numerical using one hot endcoding
+df_train = csv_train[['Shape', 'region_cat', 'time_cat']]
+df_train = pd.get_dummies(df_train, columns=['region_cat', 'time_cat'], prefix=['region', 'time'])
 
-le = preprocessing.LabelEncoder()
-A = le.fit_transform(df_train['Shape'])
-B = le.fit_transform(df_train['region_cat'])
-C = le.fit_transform(df_train['time_cat'])
-BC = list(map(lambda x,y:[x,y],B,C))
-# print()
+df_test = csv_test[['Shape', 'region_cat', 'time_cat']]
+df_test = pd.get_dummies(df_test, columns=['region_cat', 'time_cat'], prefix=['region', 'time'])
 
+# Create the decision tree
+X_train = df_train.drop(columns=['Shape'])
+Y_train = df_train['Shape']
 clf = tree.DecisionTreeClassifier()
-clf = clf.fit(BC, A)
-tree.export_graphviz(clf, out_file='tree.dot')
+clf = clf.fit(X_train, Y_train)
+# Illustrate decision tree based on training set
+tree.export_graphviz(clf, out_file='tree.dot',
+                     feature_names=df_train.drop(columns=['Shape']).columns,
+                     class_names=Y_train)
 
 # Report classification accuracy using test set
-# TODO
-
-# Illustrate decision tree based on training set
-# TODO
+X_test = df_test.drop(columns=['Shape'])
+Y_test = df_test['Shape']
+Y_predict = clf.predict(X_test)
+report = classification_report(Y_test, Y_predict)
+print(report)

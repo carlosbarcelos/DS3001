@@ -16,7 +16,18 @@ data science tools found in common Python libraries.
 * [scikit-learn](scikit-learn.org/)
 
 ## Assignment 2
+This assignment required hands on data cleaning and exploratory data analysis.
+The data was collected from the web and transformed into a more usable format through a variety of processes.
+The objective was to utilize the transformed data in creating and testing prediction accuracy using decision tree classification.
 
+#### [*Code*](hw2) | [*Report*](hw2/hw2_cbarcelos.pdf)
+
+#### Libraries Used
+* [Pandas](https://pandas.pydata.org/)
+* [Matplotlib](https://matplotlib.org/)
+* [scikit-learn](scikit-learn.org/)
+
+sklearn
 ## Assignment 3
 
 ## Assignment 4
