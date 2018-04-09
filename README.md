@@ -27,7 +27,6 @@ The objective was to utilize the transformed data in creating and testing predic
 * [Matplotlib](https://matplotlib.org/)
 * [scikit-learn](scikit-learn.org/)
 
-sklearn
 ## Assignment 3
 
 ## Assignment 4
