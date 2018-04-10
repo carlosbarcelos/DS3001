@@ -27,8 +27,23 @@ The objective was to utilize the transformed data in creating and testing predic
 * [Matplotlib](https://matplotlib.org/)
 * [scikit-learn](scikit-learn.org/)
 
-sklearn
 ## Assignment 3
+This assignment required individual collection, processing, and visualization of a dataset.
+For the purposes of this assignment, I selected [Boston Hubway](https://www.thehubway.com/system-data)'s bike share usage data
+and manipulated it to create visualizations that would help the bike share administrator make important decisions about their system.
+Thinking like a bike share administrator, these are the following questions that I want to answer through
+my visualization:
+* What is the distribution of the riders?
+  * Men v. Women & Customers v. Subscribers
+* What bikes are being used the most?
+* What is the most popular time that bikes are being used?
+  * Day of week & Month of year
+
+#### [*Code*](hw3) | [*Report*](hw3/hw3_cbarcelos.pdf)
+
+#### Libraries Used
+* [Pandas](https://pandas.pydata.org/)
+* [Matplotlib](https://matplotlib.org/)
 
 ## Assignment 4
 
