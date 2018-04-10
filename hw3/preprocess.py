@@ -1,5 +1,4 @@
 import pandas as pd
-import datetime as dt
 
 # Read in dataset and create appropriate dataframe
 csv_1 = pd.read_csv("raw_data/201701-hubway-tripdata.csv")
@@ -25,17 +24,5 @@ df = pd.concat(months)
 df.drop(columns=['start station name', 'start station latitude', 'start station longitude',
                  'end station name', 'end station latitude', 'end station longitude'], inplace=True)
 
-# Separate 'Date/Time' into unique columns
-temp = pd.DatetimeIndex(df['starttime'])
-df['start_date'] = temp.date
-df['start_time'] = temp.time
-
-temp = pd.DatetimeIndex(df['stoptime'])
-df['end_date'] = temp.date
-df['end_time'] = temp.time
-
-df.drop(columns=['starttime'], inplace=True)
-df.drop(columns=['stoptime'], inplace=True)
-
 # Write the cleaned result to CSV
-df.to_csv("2017-hubway-tripdate_CLEAN.csv")
+df.to_csv("2017-hubway-tripdata_CLEAN.csv")
