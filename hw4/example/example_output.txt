@@ -1,0 +1,6 @@
+this	1
+is	1
+‘hello	1
+interesting’	1
+world	1
+class	1

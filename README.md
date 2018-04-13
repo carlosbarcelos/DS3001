@@ -46,5 +46,11 @@ my visualization:
 * [Matplotlib](https://matplotlib.org/)
 
 ## Assignment 4
+This assignment required the use of Hadoop and mapreduce to perform two tasks relating to unique datasets.
+Task 1 required converting mapreduce from counting words to counting plaindromes.
+Task 2 required manipulating a dataset to find specific information and rank the results. to make decisions.
+
+#### [*Code*](hw4) | [*Report*](hw4/hw4_cbarcelos.pdf)
 
 ## Term Project
+**Work in Progress**
