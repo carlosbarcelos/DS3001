@@ -53,4 +53,8 @@ Task 2 required manipulating a dataset to find specific information and rank the
 #### [*Code*](hw4) | [*Report*](hw4/hw4_cbarcelos.pdf)
 
 ## Term Project
-**Work in Progress**
+This project required working in a team of three on a problem of our choosing that is interesting, significant, and relevant to Data Science.
+We created an online resource that analyzed a wine review data set in order to answer questions about price v. quality, popularity, and where best to grow the wine among other things.
+This project involved the entire data science loop.
+
+#### [*Code*](GroupProject)
