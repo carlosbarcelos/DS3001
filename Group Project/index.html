@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="DS3001 - The Sommeliers">
+    <link rel="icon" href="images/favicon.ico">
+    <title>DS3001 - The Sommeliers</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">DS3001</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dataVisualization.html">Data Visualization</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="DataAnalysis/price-vs-variety.html">Price / Variety</a>
+              <a class="dropdown-item" href="DataAnalysis/quality-vs-price.html">Quality / Price</a>
+              <a class="dropdown-item" href="DataAnalysis/variety-vs-country.html">Variety / Country</a>
+              <a class="dropdown-item" href="DataAnalysis/twitter-analysis.html">Twitter Analysis</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dataVisualization.html">Data Visualization</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="DataAnalysis/price-vs-variety.html">Price / Variety</a>
+            <a class="dropdown-item" href="DataAnalysis/quality-vs-price.html">Quality / Price</a>
+            <a class="dropdown-item" href="DataAnalysis/variety-vs-country.html">Variety / Country</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">The Sommeliers</h1>
+        <h2 class="display-4">Wine Data Analysis and Visualization</h2>
+        <p>This project was completed as the term project for DS 3001: Introduction to Data Science.
+          We gathered and analyzed a dataset of wine reviews from <a href="https://www.kaggle.com/zynicide/wine-reviews">Kaggle</a>.
+          In completion of this project we hope to allow wineries, stores, and sommeliers to better understand which wines are the most popular and what prices they sell for.
+          More information on how we accomplished this goal and the original dataset to download can be found below.
+        </p>
+        <p><a class="btn btn-info btn-lg" href="dataset/wineData_CLEAN.csv" role="button" download>Original Dataset <i class="fas fa-download"></i></a></p>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6" id="data-visualization">
+          <div class="container-fluid">
+            <a href="dataVisualization.html"><h2>Data Visualization &raquo;</h2></a>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi imperdiet
+              accumsan est, nec elementum dui feugiat sed. Quisque eget tincidunt libero,
+              nec sagittis dolor. Fusce efficitur risus ex, id blandit tellus rutrum ac.
+              Aliquam non luctus justo, at porttitor nunc. Morbi tellus elit, scelerisque
+              rhoncus venenatis eget, iaculis mollis massa. Suspendisse sed ante nec dui
+              auctor mollis. Nulla tortor metus, porta vitae urna ut, congue sollicitudin
+              risus. Vestibulum vitae venenatis leo. Proin nec neque faucibus, fermentum
+              ligula id, viverra ante. In non nisi elit. Fusce rutrum ipsum vestibulum
+              venenatis blandit. Sed a felis quis tortor commodo finibus id vel lacus.
+              Phasellus lobortis tincidunt est sit amet volutpat. Etiam libero purus,
+              ultrices eu ullamcorper vitae, ornare at tortor.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6" id="data-analysis">
+          <div class="container-fluid">
+            <a href="DataAnalysis/"><h2>Data Analysis &raquo;</h2></a>
+            <p>
+              Our visualizations ask interesting questions about the dataset, create
+              graphs and charts based on those questions, and use those graphs and charts
+              to answer the question. This process, from start to finish, reveals patterns
+              and trends in the dataset.
+            </p>
+            <p>
+              We looked at this dataset from the point of view of the consumer, retailer,
+              and producer. The consumer may be interested in learning if the quality of wine
+              is correlated with its price. <a href="DataAnalysis/quality-vs-price.html"><i class="fas fa-external-link-alt"></i></a>
+              If it is, the consumer may be more inclined to
+              purchase more expensive bottles of wine.
+            </p>
+            <p>
+              We also collected Twitter data in order to examin the recent popularity of
+              the wine varieties. This trending data is important for retailers and producers
+              to determine what wine they should stock in their stores or grow in their
+              vineyards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+    <div class="container-fluid" id="team">
+      <div class="container-fluid">
+        <h2>The Team</h2>
+        <p>
+          This project was created in partial completion of DS3001: Foundations of Data Science.
+        </p>
+        <p>
+          The team members involved in making this project were:
+        </p>
+        <ul>
+          <li>Carlos Barcelos <a href="https://github.com/carlosbarcelos"><i class="fab fa-github"></i></a></li>
+          <li>Drew Ciccarelli <a href="https://github.com/dcicc4"><i class="fab fa-github"></i></a></li>
+          <li>Benjamin Sarkis <a href="https://github.com/sarkisben"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

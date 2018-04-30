@@ -1,0 +1,22 @@
+body {
+  padding: 3.5rem 0 0 0;
+}
+.jumbotron{
+  margin-bottom: 0;
+  text-align: center;
+}
+
+#data-visualization{
+  background-image: url("../images/visualizationBackground.jpg");
+  border-radius: 0.5rem;
+}
+
+#data-analysis{
+  background-image: url("../images/analysisBackground.jpg");
+  border-radius: 0.5rem;
+}
+
+#team{
+  background-color: #e0e0e0;
+  margin-bottom: 0;
+}

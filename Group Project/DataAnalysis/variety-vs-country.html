@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="DS3001 - Data Analysis">
+  <link rel="icon" href="../images/favicon.ico">
+  <title>Data Analysis - Variety vs. Country</title>
+
+  <!-- CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/dataAnalysis.css" rel="stylesheet">
+  <!-- JS -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+  <script src="../js/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">DS3001</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dataVisualization.html">Data Visualization</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="price-vs-variety.html">Price / Variety</a>
+            <a class="dropdown-item" href="quality-vs-price.html">Quality / Price</a>
+            <a class="dropdown-item active" href="#">Variety / Country <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="twitter-analysis.html">Twitter Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav> <!-- End navbar -->
+
+  <div id="main-content">
+    <div class="container-fluid" id="">
+      <h2>Individual Country Marketshare</h2>
+      <p>
+        It is important for growers to know where they should grown their grapes.
+        It is most likely the wine is being made where it is most suitable for wine to be made;
+        the country with the largest share of the popular wine market is doing something
+        right when it comes to how they are growing their grapes. It is important
+        to look at each country's share of the market through this pie chart.
+      </p>
+      <div id="piechart"></div>
+      <p>
+        From the initial pie chart, it is clear that the United States grows the largest share
+        of wine grapes. The US grows 44.9% while the next lergest country (France)
+        grows only 14.7%. While this is true of the wine market in general, does it hold
+        true on a more granular level?
+      </p>
+    </div> <!-- End analysis group -->
+    <div class="container-fluid" id="">
+      <h2>Individual Country Marketshare by Variety</h2>
+      <p>
+        In order to get a better picture of the market, it is important to take a closer
+        look at a particular market. The Pinot Noir or Chardonnary market for example.
+        A wine grower looking to grow a particular type of grape would want to get a better
+        picture of their market by sectioning the results shown above into more specific pie charts.
+        </p>
+      <div class="row">
+        <div class="col-md-4" id="piechart-varieties1"></div>
+        <div class="col-md-4" id="piechart-varieties2"></div>
+        <div class="col-md-4" id="piechart-varieties3"></div>
+      </div>
+      <p>
+        On a more granular level, the US is still the largest grower but it shows where
+        other countries do better or worse. For example, while France grows only 14.7%
+        of the total wine grapes they rise to 20.5% when observing their growing for just
+        Chardonnay. This is an important conclusion for a French grower; there must be some
+        reason that only 12.4% of the Pinot Noir grapes are grown in France so they would
+        benefit more to focus on growing Chardonnay grapes.
+        </p>
+        <p>
+        Note: For these pie charts, we used only the top ten countries in
+        an effort to make the chart more readable. This did not alter the results
+        enough to warrent fitting all countries on the chart.
+      </p>
+    </div> <!-- End analysis group -->
+  </div><!-- End of content -->
+
+  <div class="container-fluid view-more">
+    <h2>View More</h2>
+    <div class="card-group">
+      <div class="card border-primary">
+        <img class="card-img-top" src="../images/boxplot.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Accurate Wine Pricing</h5>
+        </div>
+        <div class="card-footer border-primary">
+          <a class="btn btn-primary btn-lg" href="price-vs-variety.html" role="button">Explore &raquo;</a>
+        </div>
+      </div> <!-- End card-->
+      <div class="card border-primary">
+        <img class="card-img-top" src="../images/scatterplot.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Correlating Wine Price and Quality</h5>
+          <p class="card-text">
+          </div>
+          <div class="card-footer border-primary">
+            <a class="btn btn-primary btn-lg" href="quality-vs-price.html" role="button">Explore &raquo;</a>
+          </div>
+        </div> <!-- End card-->
+        <div class="card border-secondary">
+          <img class="card-img-top" src="../images/piechart.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Individual Country Marketshare</h5>
+          </div>
+          <div class="card-footer border-secondary">
+            <a class="btn btn-secondary btn-lg" href="variety-vs-country.html" role="button">Explore &raquo;</a>
+          </div>
+        </div> <!-- End card-->
+        <div class="card border-primary">
+            <img class="card-img-top" src="../images/bubble.PNG" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Twitter Popularity</h5>
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="twitter-analysis.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+      </div>
+    </div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/dataAnalysis.js"></script>
+  <script src="../js/dataAnalysis-piechart.js"></script>
+</body>
+</html>

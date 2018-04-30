@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="DS3001 - Data Visualization">
+  <link rel="icon" href="images/favicon.ico">
+  <title>DS3001 - Data Visualization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/starter-template.css" rel="stylesheet">
+  <link href="css/map.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">DS3001</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Data Visualization <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="DataAnalysis/price-vs-variety.html">Price / Variety</a>
+            <a class="dropdown-item" href="DataAnalysis/quality-vs-price.html">Quality / Price</a>
+            <a class="dropdown-item" href="DataAnalysis/variety-vs-country.html">Variety / Country</a>
+            <a class="dropdown-item" href="DataAnalysis/twitter-analysis.html">Twitter Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container" style="margin-left:0px; padding-left: 0px">
+    <p> Map of <select id ="varietySelect"> </select></p>
+    <div id = "mapDiv">
+    </div>
+
+  </main><!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
+<script>
+function updateData(selection){
+  selectedData = [];
+  for (let i =0; i < data.length; i++){
+    if (data[i]['variety'] === selection)
+    {
+      selectedData.push(data[i]);
+    }
+  }
+}
+function renderMap(){
+  d3.selectAll("circle").remove();
+  svg.selectAll("circle")
+  .data(selectedData)
+  .enter()
+  .append("circle")
+  .attr("r",1.5)
+  .attr("fill", "red" )
+  .attr("fill-opacity", .1)
+  .attr("transform", function(d) {return "translate(" + projection([Number(d.lng),Number(d.lat)]) + ")";});
+}
+var projection = d3.geoEquirectangular().scale(350).translate([820, 435]);
+var svg = d3.select('#mapDiv')
+.append("svg")
+.style("background-color", "lightblue")
+.attr("height", 800)
+.attr("width", 1920);
+
+var path = d3.geoPath()
+    .projection(projection);
+
+selectedData = [];
+var data;
+var varitiesCount;
+d3.csv("dataset/wineData_CLEAN.csv", undefined,callback = function(error, indata) {
+  data = indata;
+  varietyCounts = {};
+  selectedData = [];
+  var varietySelect = document.getElementById("varietySelect");
+  for (let i =0; i < data.length; i++){
+    if (varietyCounts[data[i]['variety']]=== undefined){
+      varietyCounts[data[i]['variety']] = 1;
+      var option = document.createElement("option");
+      option.text = data[i]['variety'];
+      varietySelect.add(option);
+    }else{
+      varietyCounts[data[i]['variety']] +=1;
+    }
+    if (data[i]['variety'] === "Sauvignon Blanc")
+    {
+      selectedData.push(data[i]);
+    }
+  }
+  varietySelect.onchange = (e,d)=>{
+    updateData($(varietySelect).val());
+    renderMap();
+  };
+  d3.json("https://gist.githubusercontent.com/abenrob/787723ca91772591b47e/raw/8a7f176072d508218e120773943b595c998991be/world-50m.json", (error, world)=>{
+  var graticule = d3.geoGraticule();
+
+  svg.append("g")
+		  		.attr("class", "land")
+				.selectAll("path")
+		  		.data([topojson.feature(world, world.objects.land)])
+			    .enter().append("path")
+			    .attr("d", path)
+
+
+			svg.append("g")
+		  		.attr("class", "boundary")
+				.selectAll("boundary")
+		  		.data([topojson.feature(world, world.objects.countries)])
+			    .enter().append("path")
+			    .attr("d", path);
+
+        svg.selectAll("circle")
+        .data(selectedData)
+        .enter()
+        .append("circle")
+        .attr("r",1.5)
+        .attr("fill", "red" )
+        .attr("fill-opacity", .4)
+        .attr("transform", function(d) {return "translate(" + projection([Number(d.lng),Number(d.lat)]) + ")";});
+    });
+  });
+
+
+</script>
+</body>
+</html>

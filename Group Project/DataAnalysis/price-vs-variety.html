@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="DS3001 - Data Analysis">
+  <link rel="icon" href="../images/favicon.ico">
+  <title>Data Analysis - Price vs. Variety</title>
+
+  <!-- CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/dataAnalysis.css" rel="stylesheet">
+  <!-- JS -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="../js/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">DS3001</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dataVisualization.html">Data Visualization</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item active" href="#">Price / Variety <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="quality-vs-price.html">Quality / Price</a>
+            <a class="dropdown-item" href="variety-vs-country.html">Variety / Country</a>
+            <a class="dropdown-item" href="twitter-analysis.html">Twitter Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav> <!-- End navbar -->
+
+  <div id="main-content">
+    <div class="container-fluid" id="">
+      <h2>Accurate Wine Pricing</h2>
+      <p>
+        One important aspect of consuming, currating, or selling wine is how to price it.
+        Our goal was to analyze how the variety of the wine affects its price.
+        We created a box plot to do just this:
+      </p>
+      <div id="boxplot"></div>
+      <br>
+      <p>
+        What this box plot tell us about the listed wine varieties is how much they sell for on average,
+        the spread of the sale prices, and minimum and maximum sale prices. For example, looking at this
+        graph reveals that the most expensive variety on average is Pinot Noir at $40 a bottle shortly
+        followed by Cabernet Sauvignon at $35 a bottle. But looking at the Cabernet Sauvignon we see that is
+        has the most volatility in its pricing with the most expensive bottle selling for $130.
+      </p>
+      <p>
+        What this data tells retailers is in what range they should price their wine. $40 may be an appropriate
+        price for Pinot Noir but is far too expensive for a Rose.
+      </p>
+      <p>
+        <em>Note: For this analysis we used the top ten most frequent wine varieties in order
+          to make the graph more readable and meaningful.</em>
+        </p>
+      </div> <!-- End analysis group -->
+    </div><!-- End of content -->
+
+    <div class="container-fluid view-more">
+      <h2>View More</h2>
+      <div class="card-group">
+        <div class="card border-secondary">
+          <img class="card-img-top" src="../images/boxplot.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Accurate Wine Pricing</h5>
+          </div>
+          <div class="card-footer border-secondary">
+            <a class="btn btn-secondary btn-lg" href="price-vs-variety.html" role="button">Explore &raquo;</a>
+          </div>
+        </div> <!-- End card-->
+        <div class="card border-primary">
+          <img class="card-img-top" src="../images/scatterplot.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Correlating Wine Price and Quality</h5>
+            <p class="card-text">
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="quality-vs-price.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+          <div class="card border-primary">
+            <img class="card-img-top" src="../images/piechart.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Individual Country Marketshare</h5>
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="variety-vs-country.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+          <div class="card border-primary">
+            <img class="card-img-top" src="../images/bubble.PNG" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Twitter Popularity</h5>
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="twitter-analysis.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+        </div>
+      </div>
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/dataAnalysis.js"></script>
+      <script src="../js/dataAnalysis-boxPlot.js"></script>
+    </body>
+    </html>

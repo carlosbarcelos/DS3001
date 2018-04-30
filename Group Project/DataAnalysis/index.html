@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="DS3001 - Data Analysis">
+  <link rel="icon" href="../images/favicon.ico">
+  <title>DS3001 - Data Analysis</title>
+
+  <!-- CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/dataAnalysis.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">DS3001</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dataVisualization.html">Data Visualization</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis <span class="sr-only">(current)</span></a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="price-vs-variety.html">Price / Variety</a>
+            <a class="dropdown-item" href="quality-vs-price.html">Quality / Price</a>
+            <a class="dropdown-item" href="variety-vs-country.html">Variety / Country</a>
+            <a class="droptown-item" href="twitter-analysis.html">Twitter Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav> <!-- End navbar -->
+
+  <div class="container-fluid">
+    <h1 class="display-3">Data Analysis</h1>
+    <p>
+      The following charts help explore our dataset and answer some key questions.
+      Each section below contains a unique graph or chart which is accompanied by an analysis
+      of the data and a description of why that analysis is imporant.
+    </p>
+    <br>
+    <div class="card-group">
+      <div class="card border-primary">
+        <img class="card-img-top" src="../images/boxplot.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Accurate Wine Pricing</h5>
+          <p class="card-text">
+            How will a wine retailer know the right price points
+            of a given wine variety? This boxplot will help analyze the pricing of a
+            wine relative to its variety.
+          </p>
+        </div>
+        <div class="card-footer border-primary">
+          <a class="btn btn-primary btn-lg" href="price-vs-variety.html" role="button">Explore &raquo;</a>
+        </div>
+      </div> <!-- End card-->
+      <div class="card border-primary">
+        <img class="card-img-top" src="../images/scatterplot.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Correlating Wine Price and Quality</h5>
+          <p class="card-text">
+            "Can you really tell the difference between the $10 and the $100 bottle?"
+            This scatterplot will help analyze the quality of a wine relative to its price
+            in order to answer this question.
+          </p>
+        </div>
+        <div class="card-footer border-primary">
+          <a class="btn btn-primary btn-lg" href="quality-vs-price.html" role="button">Explore &raquo;</a>
+        </div>
+      </div> <!-- End card-->
+      <div class="card border-primary">
+        <img class="card-img-top" src="../images/piechart.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Individual Country Marketshare</h5>
+          <p class="card-text">
+            Wine grapes are grown where it is suitable for wine grapes to grow.
+            The country with the largest share of the popular wine market is most
+            likely to have the best conditions in which to grow their grapes.
+            This pie chart looks at each country's share of the market.
+          </p>
+        </div>
+        <div class="card-footer border-primary">
+          <a class="btn btn-primary btn-lg" href="variety-vs-country.html" role="button">Explore &raquo;</a>
+        </div>
+      </div> <!-- End card-->
+    </div>
+  </div> <!-- End card group -->
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

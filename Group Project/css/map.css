@@ -1,0 +1,9 @@
+.land {
+    fill: #fcfcfe;
+    stroke: #766951;
+  }
+
+  .boundary {
+    fill: none;
+    stroke: #a5967e;
+  }

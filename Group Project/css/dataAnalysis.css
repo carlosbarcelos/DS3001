@@ -1,0 +1,19 @@
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: left;
+}
+
+#main-content {
+  padding: 2rem;
+}
+
+.container-fluid{
+  padding-bottom: 2rem;
+}
+
+.view-more{
+  background-color: #e0e0e0;
+}

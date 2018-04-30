@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="DS3001 - Twitter Analysis">
+    <link rel="icon" href="../images/favicon.ico">
+    <title>Data Analysis - Twitter Popularity</title>
+
+    <!-- CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/dataAnalysis.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+   <script src="../js/plotly-latest.min.js"></script>
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">DS3001</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../dataVisualization.html">Data Visualization</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Analysis</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="price-vs-variety.html">Price / Variety</a>
+              <a class="dropdown-item" href="quality-vs-price.html">Quality / Price</a>
+              <a class="dropdown-item" href="variety-vs-country.html">Variety / Country</a>
+              <a class="dropdown-item active" href="#">Twitter Analysis <span class="sr-only">(current)</span></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+     
+     <div id="main-content"> 
+      <div class="container-fluid" id="">
+         <h2>Measuring Twitter popularity of past 30 days</h2>
+         <p>
+          Raw data takes a long time to update and standardize.  The busy person who just wants to be in the know is asking <em>"What is everyone saying about this wine?  </em>
+          By creating a bubble chart representing the top varieties of wine, we can aid any person in their real time search.
+          </p>
+          <div id="bubblechart"></div>
+          <p> 
+             <h3> Calculations and Data </h3>
+             This analysis ocurred on April 28th.  Four dimensions are represented in thie graph, three of which are quantitative, one of which is qualitative.  The qualtiatvie dimension is simply the name of the wine.  The three quantitative dimensions are net favorite count, net retweet count, and total tweets. Net favorite count is the sum of all times that all tweets of a wine have been favorites.  Net retweet count is calculated identically to net favorite count, with the only difference being that retweets are the calcualated variable.  Finally total tweets is just a sum of all tweets of a variety of wine. 
+             <h3> Analysis </h3>
+             The data given was last updated on April 28th. This means that over the month of April, people have tweeted the most about Rose, Merlot, Riesling, Syrah, and Charodnnay wine.  The limitations of the twitter API keep the number of tweets at a maximum of 200 per query. Thus wines that have 200 tweets may be more accurately understood as 200+ tweets. To more accurately reflect the online presence of a wine, one must look at retweet count and favorite count.
+             A larger bubble represents a larger net favorited count. A more purple bubble represent a larger net retweet count. A few interesting conclusions result from the applications of these extra dimensions.  First off, a favoirte count does not significantly correlate with a retweet count. The most prominent example is Rose wine, which has over 90000 retweets, but only 69 favorites in the last month.  In addition since these are the top ten wines in the database, it is interesting to note that Bordeaux-style Red Blend has only 5 tweets in the past 30 days despite its prevalence in the primary database. Further tools must be applied to raise the cap of gathered tweets from 200 to a more realistic cap.
+         </p>
+         <p>
+          <em> Note: The free version of the twitter API caused most of the limitations in this data set:  no more than 200 tweets per query, a limited amount of calls per hour limiting the amount of varieties we can query, and the date limitation of 30 days </em>
+        </p>
+      </div> <!-- /.container -->
+    </div> <!--End of content -->
+
+    <div class="container-fluid view-more">
+      <h2>View More</h2>
+      <div class="card-group">
+        <div class="card border-primary">
+          <img class="card-img-top" src="../images/boxplot.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Accurate Wine Pricing</h5>
+          </div>
+          <div class="card-footer border-primary">
+            <a class="btn btn-primary btn-lg" href="price-vs-variety.html" role="button">Explore &raquo;</a>
+          </div>
+        </div> <!-- End card-->
+        <div class="card border-primary">
+          <img class="card-img-top" src="../images/scatterplot.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Correlating Wine Price and Quality</h5>
+            <p class="card-text">
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="quality-vs-price.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+          <div class="card border-primary">
+            <img class="card-img-top" src="../images/piechart.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Individual Country Marketshare</h5>
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-primary btn-lg" href="variety-vs-country.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+          <div class="card border-secondary">
+            <img class="card-img-top" src="../images/bubble.PNG" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Twitter Popularity</h5>
+            </div>
+            <div class="card-footer border-primary">
+              <a class="btn btn-secondary btn-lg" href="twitter-analysis.html" role="button">Explore &raquo;</a>
+            </div>
+          </div> <!-- End card-->
+        </div>
+      </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/dataAnalysis.js"></script>
+    <script src="../js/dataAnalysis-twitterbubble.js"></script>
+  </body>
+</html>
