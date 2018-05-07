@@ -57,4 +57,4 @@ This project required working in a team of three on a problem of our choosing th
 We created an online resource that analyzed a wine review data set in order to answer questions about price v. quality, popularity, and where best to grow the wine among other things.
 This project involved the entire data science loop.
 
-#### [*Code*](GroupProject)
+#### [*Code*](GroupProject) | [*Live Website*](https://carlosbarcelos.github.io/DS3001/Group%20Project/index.html)
